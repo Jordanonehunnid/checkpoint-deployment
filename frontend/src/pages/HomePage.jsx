@@ -14,7 +14,7 @@ const HomePage = () => {
 
 	const [sortType, setSortType] = useState("recent");
 
-	const getUserProfileAndRepos = useCallback(async (username = "Jordanonehunnid") => {
+	const getUserProfileAndRepos = useCallback(async (username = "jordanonehunnid") => {
 		setLoading(true);
 		try {
 			const res = await fetch(`https://api.github.com/users/${username}`);
@@ -55,9 +55,9 @@ const HomePage = () => {
 	const onSort = (sortType) => {
 		if (sortType === "recent") {
 			repos.sort((a, b) => new Date(b.created_at) - new Date(a.created_at)); //descending, recent first
-		} else if (sortType === "stars") {
+		} else if (sortType === "recent") {
 			repos.sort((a, b) => b.stargazers_count - a.stargazers_count); //descending, most stars first
-		} else if (sortType === "forks") {
+		} else if (sortType === "recent") {
 			repos.sort((a, b) => b.forks_count - a.forks_count); //descending, most forks first
 		}
 		setSortType(sortType);
