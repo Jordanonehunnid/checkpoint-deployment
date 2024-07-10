@@ -17,7 +17,7 @@ const HomePage = () => {
 	const getUserProfileAndRepos = useCallback(async (username = "jordanonehunnid") => {
 		setLoading(true);
 		try {
-			const res = await fetch(`https://api.github.com/users/${username}`);
+			const res = await fetch(`/api/users/profile/${username}`);
 			const { repos, userProfile } = await res.json();
 
 			repos.sort((a, b) => new Date(b.created_at) - new Date(a.created_at)); //descending, recent first
